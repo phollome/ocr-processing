@@ -1,0 +1,12 @@
+{
+  "include": ["src/*", "tests/*", "*.js"],
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "lib": ["es2015", "dom"],
+    "types": ["node", "jest"],
+    "module": "commonjs"
+  },
+  "exclude": ["node_modules/**"]
+}
