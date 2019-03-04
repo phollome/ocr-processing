@@ -1,19 +1,22 @@
 const { promisify } = require("util");
-const { resolve } = require("path");
+const { resolve, join } = require("path");
 const { writeFile } = require("fs").promises;
 const mkdirp = promisify(require("mkdirp"));
 const rimraf = promisify(require("rimraf"));
+const { TMP_DIR } = require("./globals");
 
 const collectFiles = require("../src/collectFiles");
-const sourceDir = resolve(__dirname, "tmp/testsource");
+const sourceDir = resolve(__dirname, TMP_DIR, "testsource");
 
 beforeAll(async () => {
-  const dir1 = await mkdirp(resolve(sourceDir, randomString()));
-  const dir2 = await mkdirp(resolve(sourceDir, randomString()));
-  await writeFile(resolve(dir1, `${randomString()}.png`), "");
-  await writeFile(resolve(dir1, `${randomString()}.jpg`), "");
-  await writeFile(resolve(dir2, `${randomString()}.jpeg`), "");
-  await writeFile(resolve(dir2, `${randomString()}.txt`), "");
+  const dir1 = resolve(sourceDir, randomString());
+  const dir2 = resolve(sourceDir, randomString());
+  await mkdirp(dir1);
+  await mkdirp(dir2);
+  await writeFile(join(dir1, `${randomString()}.png`), "");
+  await writeFile(join(dir1, `${randomString()}.jpg`), "");
+  await writeFile(join(dir2, `${randomString()}.jpeg`), "");
+  await writeFile(join(dir2, `${randomString()}.txt`), "");
 });
 
 test("Collect all files of given location", async () => {
