@@ -3,8 +3,8 @@ const glob = require("glob");
 /**
  * Collect files for later OCR processing
  * @param {string} dir - directory to start search
- * @param {Array<string>} extnames - file extensions to search for
- * @returns Promise.<Array<string>|Error>
+ * @param {...string} extnames - file extensions to search for
+ * @returns {Promise<Array<string>>}
  * TODO: add flag to ignore still processed files
  */
 function collectFiles(dir, ...extnames) {
