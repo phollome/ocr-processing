@@ -5,7 +5,7 @@ const mkdirp = promisify(require("mkdirp"));
 const rimraf = promisify(require("rimraf"));
 
 const collectFiles = require("../src/collectFiles");
-const sourceDir = resolve(__dirname, "testsource");
+const sourceDir = resolve(__dirname, "tmp/testsource");
 
 beforeAll(async () => {
   const dir1 = await mkdirp(resolve(sourceDir, randomString()));
