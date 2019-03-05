@@ -6,7 +6,8 @@
     "noEmit": true,
     "lib": ["es2015", "dom"],
     "types": ["node", "jest"],
-    "module": "commonjs"
+    "module": "commonjs",
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules/**"]
 }
