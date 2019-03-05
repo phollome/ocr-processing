@@ -4,7 +4,6 @@ const rimraf = promisify(require("rimraf"));
 const { TMP_DIR } = require("./globals");
 
 async function teardown() {
-  console.log("teardown!!!");
   await rimraf(resolve(__dirname, TMP_DIR));
 }
 
