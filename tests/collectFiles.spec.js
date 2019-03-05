@@ -5,7 +5,7 @@ const mkdirp = promisify(require("mkdirp"));
 const rimraf = promisify(require("rimraf"));
 const { TMP_DIR } = require("./globals");
 
-const collectFiles = require("../src/collectFiles");
+const { collectFiles } = require("../src");
 const sourceDir = resolve(__dirname, TMP_DIR, "testsource");
 
 beforeAll(async () => {

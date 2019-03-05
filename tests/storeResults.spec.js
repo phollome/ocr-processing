@@ -5,7 +5,7 @@ const { readFile } = require("fs").promises;
 const { TMP_DIR } = require("./globals");
 const rimraf = promisify(require("rimraf"));
 
-const storeResults = require("../src/storeResults");
+const { storeResults } = require("../src");
 const targetDir = resolve(__dirname, TMP_DIR, "testtarget");
 
 test("Store results in given folder", async () => {
